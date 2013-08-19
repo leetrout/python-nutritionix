@@ -67,6 +67,21 @@ to the method
 
     nix.search('pizza', results="0:1").json()
 
+#### Using NXQL ####
+
+And making use of NXQL is also straight forward by using a call to search with
+no arguments and calling the nxql method with your desired query expressed as
+keyword arguments (filters, queries, or query)
+
+    nix.search().nxql(
+        filters=[{
+            "nf_calories": {
+                "lte": 500
+            }
+        }],
+        fields=["item_name", "item_id", "nf_calories"]
+    ).json()
+
 
 Examples
 ========
@@ -141,7 +156,3 @@ Examples
      u'updated_at': u'2013-06-26T11:36:25.468Z',
      u'website': u'http://www.mcdonalds.com'}
 
-Todo
-====
-
-+ Add NXQL support

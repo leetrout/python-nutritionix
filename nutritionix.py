@@ -1,4 +1,5 @@
 import copy
+import json
 import os
 
 from requests import request
@@ -19,15 +20,20 @@ class Nutritionix(object):
         self.base_url = BASE_URL
         self.path = []
         self.qs = {}
+        self.method = 'get'
 
     def __getattr__(self, method):
         # Create a new copy of self
+        obj = self._copy()
+        # add method to path
+        obj.path.append(method)
+        return obj.mock_attr
+
+    def _copy(self):
         obj = self.__class__(self.app_id, self.api_key)
         obj.path = copy.copy(self.path)
         obj.qs = copy.copy(self.qs)
-
-        obj.path.append(method)
-        return obj.mock_attr
+        return obj
 
     def mock_attr(self, *args, **kwargs):
         """
@@ -56,5 +62,20 @@ class Nutritionix(object):
         self.set_auth()
         return request('get', self.url, params=self.qs)
 
+    def post(self):
+        self.set_auth()
+        return request(
+            'post',
+            self.url,
+            data=json.dumps(self.qs),
+            headers={'content-type': 'application/json'}
+        )
+
     def json(self):
-        return self.get().json()
+        return getattr(self, self.method)().json()
+
+    def nxql(self, **query):
+        obj = self._copy()
+        obj.method = 'post'
+        obj.qs.update(query)
+        return obj
