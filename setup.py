@@ -15,7 +15,7 @@ setup(
     author='Lee Trout',
     author_email='leetrout@gmail.com',
     url='https://github.com/leetrout/python-nutritionix/',
-    packages=['nutritionix'],
+    py_modules=['nutritionix'],
     install_requires=['requests'],
     classifiers=[
         'Development Status :: 4 - Beta',
