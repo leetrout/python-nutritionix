@@ -9,7 +9,7 @@ See the repo home for usage instructions at
 
 setup(
     name='nutritionix',
-    version='0.1',
+    version='0.2',
     description='Nutritionix Python API wrapper',
     long_description=long_description,
     author='Lee Trout',
