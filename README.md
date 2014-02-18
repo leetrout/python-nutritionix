@@ -144,6 +144,19 @@ Examples
      u'old_api_id': None,
      u'updated_at': u'2013-06-28T17:53:50.000Z'}
 
+### Brand Search ###
+
+    >>> nix.brand().search(query="mcdonalds").json()
+    {u'hits': [{u'_id': u'513fbc1283aa2dc80c000053',
+     u'_index': u'nixproductionv13',
+     u'_score': 7.1310086,
+     u'_type': u'brand',
+     u'fields': {u'_id': u'513fbc1283aa2dc80c000053',
+     u'name': u"McDonald's",
+     u'type': 1,
+     u'website': u'http://www.mcdonalds.com'}}],
+     u'max_score': 7.1310086,
+     u'total': 1}
 
 ### Brands ###
 
@@ -155,4 +168,5 @@ Examples
      u'type': 1,
      u'updated_at': u'2013-06-26T11:36:25.468Z',
      u'website': u'http://www.mcdonalds.com'}
+
 
