@@ -34,12 +34,12 @@ Usage
 
 First, instantiate the API wrapper object
 
-    from nutritionix import Nutrtionix
+    from nutritionix import Nutritionix
     nix = Nutritionix(app_id="123456789", api_key="XXXYYYZZZ")
 
 Or if you have configured the environment variables, simply
 
-    from nutritionix import Nutrtionix
+    from nutritionix import Nutritionix
     nix = Nutritionix()
 
 #### Define request ####
