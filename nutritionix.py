@@ -7,7 +7,7 @@ from requests import request
 BASE_URL = "https://api.nutritionix.com/v1_1/"
 
 
-class ImproperlyConfigured(Exception):
+class ImproperlyConfiguredFoo(Exception):
     pass
 
 
